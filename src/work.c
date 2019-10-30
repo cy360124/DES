@@ -3,13 +3,6 @@
 #include "assist.h"
 #include "DES.h"
 
-void
-check(char src[], int size)
-{
-    for(int i = 0; i < size; i++) printf("%c", src[i]);
-}
-
-
 // try open a file
 // SE: 0 is input file, 1 is output file
 // return value: 0 is success, 1 is fail
@@ -233,8 +226,6 @@ decryption_CBC()
 
     // get initial vector
     get_IV(vector);
-    //check
-    printf("IV:"); check(vector, 64); printf("\n");
 
     // read and deal with
     while (1) {
