@@ -5,8 +5,6 @@
 #define MAX_STR 100
 #define ROUND_TIMES 8  
 
-typedef void (* Func) (char * , const char *);
-
 char instr[MAX_STR];
 char input[64];
 char output[64];
