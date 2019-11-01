@@ -1,5 +1,5 @@
 # DES
- archieve the DES encryption algorithm
+ achieve the DES encryption algorithm
 
 ### Introduction
 It is a 64-bit DES program in the mode of CBC, which can implement both encryption and decryption.

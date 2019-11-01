@@ -33,9 +33,14 @@ open_file(int SE, char fname[])
 void
 out_to_file(char src[])
 {
-    for (int i = 0; i < 64; i++)
-        fputc(src[i], out_fp);
-    fputc('\n', out_fp);
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++)
+            fputc(src[i * 8 + j], out_fp);
+        if (i != 7)
+            fputc(' ', out_fp);
+        else
+            fputc('\n', out_fp);
+    }
 }
 
 
