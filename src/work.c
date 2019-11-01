@@ -198,9 +198,9 @@ encryption_CBC()
         judge = read_input(input, &num);
         // if success
         if (judge < 2) {
-            // if at the end but read no char 
+            // if at the end but read no char, it means 64-bit asign 
             if (judge == 1 && num == 0) {
-                add_mark(num); break;           // just add_mark and break
+                add_mark(64); break;           // just add_mark and break
             }
             // once read chars, deal with them
             my_xor(input, input, vector, 64);   // input = input xor vector, equal to (a + b) mod 2
