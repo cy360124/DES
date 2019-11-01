@@ -198,16 +198,18 @@ encryption_CBC()
         judge = read_input(input, &num);
         // if success
         if (judge < 2) {
-            // if at the end but read no char, break
-            if (judge == 1 && num == 0) break;  
-            // if not at the end
+            // if at the end but read no char 
+            if (judge == 1 && num == 0) {
+                add_mark(num); break;           // just add_mark and break
+            }
+            // once read chars, deal with them
             my_xor(input, input, vector, 64);   // input = input xor vector, equal to (a + b) mod 2
             encryption(output, input);          // encryption
             copy(vector, output, 64);           // update vector
             out_to_file(output);                // output
             // if at the end and read some chars
             if (judge == 1) {
-                add_mark(num); break;           // add the mark at the end
+                add_mark(num); break;           // add_mark and break
             }
         }
         // if any error
