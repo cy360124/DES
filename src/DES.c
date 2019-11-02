@@ -55,6 +55,7 @@ conduct_subKey(char (*subKey)[48], char primaryKey[])
     for (int i  = 0; i < ROUND_TIMES; i++) {
         // left shift
         left_shift(C, 28, LS[i]);
+        left_shift(D, 28, LS[i]);
         // copy to the temp[]        
         for(int i = 0; i < 28; i++) temp[i] = C[i];   
         for(int i = 28; i < 56; i++) temp[i] = D[i - 28];
