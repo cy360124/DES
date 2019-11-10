@@ -1,5 +1,3 @@
-#include <string.h>
-#include <stdlib.h>
 #include "global.h"
 #include "matrix.h"
 #include "assist.h"
