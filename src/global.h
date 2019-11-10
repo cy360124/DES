@@ -5,14 +5,15 @@
 #define MAX_STR 100
 #define ROUND_TIMES 8  
 
-char instr[MAX_STR];
-char input[64];
-char output[64];
-char primaryKey[64];
-char subKey[ROUND_TIMES][48]; 
-char vector[64];
-char mode;
-FILE * in_fp;
-FILE * out_fp;
+extern char instr[MAX_STR];
+extern char input[64];
+extern char output[64];
+extern char primaryKey[64];
+extern char subKey[ROUND_TIMES][48]; 
+extern char vector[64];
+extern char mode;
+extern FILE * in_fp;
+extern FILE * out_fp;
+extern bool prepare;
 
 #endif  /* CODE_GLOBAL_H */

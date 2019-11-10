@@ -4,8 +4,6 @@
 #include "assist.h"
 #include "work.h"
 
-int prepare;
-
 int main()
 {
     welcome();    // introduce the DES
@@ -37,13 +35,13 @@ int main()
                 if (read_primaryKey_or_vector(vector))  continue;  // if wrong, exit prepare
             }
 
-            // set prepare to 1
-            prepare = 1;
+            // set prepare to true
+            prepare = true;
             printf("(DES)--> Prepare DES successfully!\n");
         } 
         else if (strcmp(instr, "run") == 0) {
             // judge whether prepare
-            if (prepare == 0) {
+            if (!prepare) {
                 printf("(DES)--> You have not prepared the DES before running. Please prepare it.\n");
                 continue;
             }
@@ -63,8 +61,8 @@ int main()
             fclose(in_fp);                                         // close input.txt
             fclose(out_fp);                                        // close output.txt
 
-            // after running, set prepare to 0
-            prepare = 0;
+            // after running, set prepare to false
+            prepare = false;
             printf("(DES)--> Run DES successfully!\n");
         }
         // quit
