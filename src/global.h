@@ -8,7 +8,7 @@
 #define TESTTIMES 32     // test times of Miller_Rabin
 
 extern char primaryKey[64];            // the primary Key
-extern char vec[64];                // initial vector
+extern char initial_vec[64];           // initial vector
 
 extern FILE * in_fp;                   // the pointer of input file
 extern FILE * out_fp;                  // the pointer of output file

@@ -204,10 +204,10 @@ void decrypt_primaryKey(char des[])
 // add some information at the end of output file
 void add_mark(int num)
 {
-    Int2Char(input, num, 64);                              // conduct input[]
-    my_xor(input, input, vec, 64);                         // input = input xor vector, equal to (a + b) mod 2
-    DES_encryption(output, input);                         // encryption
-    out_to_file(output);                                   // output to file
+    Int2Char(input, num, 64);                 // conduct input[]
+    my_xor(input, input, initial_vec, 64);    // input = input xor vector, equal to (a + b) mod 2
+    DES_encryption(output, input);            // encryption
+    out_to_file(output);                      // output to file
 }
 
 // achieve the encryption in CBC
@@ -223,7 +223,7 @@ int CBC_encryption()
     encrypt_primaryKey(primaryKey);
 
     // use DES to encrypt initial vector and output
-    encrypt_IV(vec);
+    encrypt_IV(initial_vec);
 
     // read the file and deal with
     while (1) {
@@ -235,10 +235,10 @@ int CBC_encryption()
                 add_mark(64); break;           // just add_mark and break
             }
             // once read chars, deal with them
-            my_xor(input, input, vec, 64);   // input = input xor vector, equal to (a + b) mod 2
+            my_xor(input, input, initial_vec, 64);  // input = input xor vector, equal to (a + b) mod 2
             DES_encryption(output, input);          // encryption
-            copy(vec, output, 64);           // update vector
-            out_to_file(output);                // output
+            copy(initial_vec, output, 64);          // update vector
+            out_to_file(output);                    // output
             // if at the end and read some chars
             if (judge == 1) {
                 add_mark(num); break;           // add_mark and break
@@ -266,15 +266,7 @@ int CBC_decryption()
     conduct_subKey(primaryKey);
 
     // get initial vector
-    decrypt_IV(vec);
-
-    // check
-    printf("primarkKey is:\n");
-    for (int i = 0; i < 64; i++) printf("%c", primaryKey[i]);
-    printf("\n");
-    printf("initial vector is:\n");
-    for (int i = 0; i < 64; i++) printf("%c", vec[i]);
-    printf("\n");
+    decrypt_IV(initial_vec);
 
     // read and deal with
     while (1) {
@@ -284,10 +276,10 @@ int CBC_decryption()
             // if at the end but read no char, do not need to deal, just break
             if (judge == 1 && num == 0) break;
             // if not at the end
-            DES_decryption(output, input);            // decryption
-            my_xor(output, output, vec, 64);   // output = output xor vector, equal to (a + b) mod 2
-            copy(vec, input, 64);              // update vector
-            out_to_file(output);                  // output to file
+            DES_decryption(output, input);             // decryption
+            my_xor(output, output, initial_vec, 64);   // output = output xor vector, equal to (a + b) mod 2
+            copy(initial_vec, input, 64);              // update vector
+            out_to_file(output);                       // output to file
             // if at the end and read some chars, after dealing, break
             if (judge == 1) break;
         }

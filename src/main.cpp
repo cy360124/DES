@@ -38,7 +38,7 @@ int main()
                 // get initial vector
                 printf_vector();                                       // introduce
                 wait();                                                // wait for input
-                if (read_primaryKey_or_vector(vec))  continue;      // if wrong, exit prepare
+                if (read_primaryKey_or_vector(initial_vec))  continue; // if wrong, exit prepare
             }
 
             // try open file
