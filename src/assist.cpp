@@ -1,3 +1,4 @@
+/* This file  defines some assistant functions */
 #include <stdio.h>
 
 // wait for instructions
