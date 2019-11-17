@@ -1,8 +1,5 @@
-# DES
- achieve the DES encryption algorithm
-
 ### Introduction
-It achieves the DES algorithm for Information Security.
+It achieves the DES algorithm for Information Security. The encryption is in the mode of CBC. And the primaryKey of DES will be encrypted by RSA.
 
 ### Structure
 
